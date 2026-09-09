@@ -1,0 +1,56 @@
+{
+  "app_name": "E1 Sentinel - Professional AI CCTV Surveillance Control Room",
+  "archetype": "Tactical Midnight Obsidian (Archetype 2 / 5 hybrid)",
+  "typography": {
+    "headings": "JetBrains Mono / Inter, uppercase tracking-tight, heavy weight",
+    "body": "Inter / Space Grotesk, high legibility",
+    "sizes": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl",
+      "h3": "text-xl sm:text-2xl",
+      "body": "text-sm sm:text-base",
+      "caption": "text-xs tracking-[0.2em]"
+    }
+  },
+  "colors": {
+    "background": "#090A0F",
+    "surface": "#12151E",
+    "surface_elevated": "#1A1E2C",
+    "primary": "#00FF66",
+    "secondary": "#3B82F6",
+    "accent_amber": "#F59E0B",
+    "accent_crimson": "#EF4444",
+    "border": "#222B44",
+    "text_main": "#F1F5F9",
+    "text_muted": "#94A3B8"
+  },
+  "visual_enhancers": {
+    "glass_blur": "backdrop-blur-xl bg-[#12151E]/80",
+    "border_glow": "border border-[#222B44] hover:border-[#00FF66]/50 transition-all",
+    "shadows": "shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
+  },
+  "component_path": "/app/frontend/src/components",
+  "instructions_to_main_agent": "Build a fully operational, high-security CCTV surveillance control room with N-cameras live grid, AI bounding box overlays, watchlist management, alert center with severity/acknowledgments, camera management with connection testing, detection history search, RBAC user permissions, audit logging, analytics reports, and python AI engine ingestion API/WebSockets. Ensure Tactical Midnight Obsidian dark theme, high contrast monospace timestamps, emerald/amber/crimson status HUD, and robust data-testid attributes.",
+  "image_urls": [
+    {
+      "category": "surveillance_cameras",
+      "url": "https://images.unsplash.com/photo-1549109926-58f039549485?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjd8MHwxfHNlYXJjaHwzfHxzZWN1cml0eSUyMGd1YXJkJTIwc3VydmVpbGxhbmNlJTIwY2FtZXJhfGVufDB8fHx8MTc4ODkzMDE1NXww&ixlib=rb-4.1.0&q=85",
+      "description": "White surveillance camera hanging on wall"
+    },
+    {
+      "category": "surveillance_poles",
+      "url": "https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjd8MHwxfHNlYXJjaHwxfHxzZWN1cml0eSUyMGd1YXJkJTIwc3VydmVpbGxhbmNlJTIwY2FtZXJhfGVufDB8fHx8MTc4ODkzMDE1NXww&ixlib=rb-4.1.0&q=85",
+      "description": "Two bullet surveillance cameras attached on wall"
+    },
+    {
+      "category": "watchlist_target_1",
+      "url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwxfHx3YW50ZWQlMjBmYWNlJTIwcG9ydHJhaXQlMjBiaW9tZXRyaWN8ZW58MHx8fHwxNzg4OTMwMTU1fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Biometric reference portrait of target 1"
+    },
+    {
+      "category": "watchlist_target_2",
+      "url": "https://images.unsplash.com/photo-1509460913899-515f1df34fea?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwyfHx3YW50ZWQlMjBmYWNlJTIwcG9ydHJhaXQlMjBiaW9tZXRyaWN8ZW58MHx8fHwxNzg4OTMwMTU1fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Biometric reference portrait of target 2"
+    }
+  ]
+}

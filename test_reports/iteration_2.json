@@ -1,0 +1,61 @@
+{
+  "summary": "Retested secure AI ingestion, seeded-role authentication, viewer camera RBAC, and all nine admin navigation pages. Backend checks passed; UI routes rendered, but browser console warnings/errors remain for telemetry WebSocket setup and chart/markup rendering.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "Reports charts",
+        "issue": "Browser console reports Recharts ResponsiveContainer width(-1)/height(-1) during page rendering; charts should avoid rendering until the container has measurable dimensions.",
+        "selector": "[data-testid=nav-reports]",
+        "priority": "MEDIUM"
+      },
+      {
+        "component": "Select controls",
+        "issue": "Browser console reports invalid HTML nesting: span cannot be a child of option, indicating a markup warning in a rendered control.",
+        "selector": "select option",
+        "priority": "MEDIUM"
+      }
+    ],
+    "integration_issues": [
+      {
+        "flow": "Telemetry WebSocket connection",
+        "issue": "Console reports wss WebSocket closed before connection establishment and WS error while navigating authenticated pages; live telemetry connection was not established in the public UI run.",
+        "affected_selectors": ["[data-testid=nav-dashboard]", "[data-testid=nav-live-cameras]"]
+      }
+    ],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_sentinel_api.py",
+    "/app/backend/tests/test_ai_ingestion_security.py",
+    "/app/test_reports/pytest/pytest_results.xml",
+    "/app/test_reports/pytest/ai_ingestion_results.xml"
+  ],
+  "action_items": [
+    "Investigate public ingress/proxy support for wss /api/ws/telemetry and ensure the frontend reconnects without repeated console errors.",
+    "Fix invalid span-inside-option markup in the relevant select control.",
+    "Guard or resize Recharts ResponsiveContainer instances so initial layout does not produce zero/negative dimension warnings."
+  ],
+  "critical_code_review_comments": [
+    "server.py remains a very large monolithic module; split auth, camera, ingestion, and seeding responsibilities before production hardening.",
+    "server.py still defines fallback production secrets and credentials when environment variables are missing; required deployment secrets should fail fast instead."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_ai_ingestion_security.py",
+    "/app/test_reports/iteration_2.json",
+    "/app/test_reports/pytest/ai_ingestion_results.xml",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "success_rate": {
+    "backend": "100%",
+    "frontend": "89%"
+  },
+  "seed_data_creation": "No seed data created. Two test detections/alerts were intentionally ingested with the valid AI key for verification.",
+  "retest_needed": true,
+  "should_call_test_agent_after_fix": true,
+  "context_for_next_testing_agent": "Backend auth, cookies, role sessions, viewer CAM-01/CAM-02 access with CAM-03 denied, invalid/missing AI key rejection, valid event+alert creation, and all nine admin routes were tested. Recheck WebSocket connectivity and browser console cleanliness after frontend/ingress fixes.",
+  "rca of the issue": "The requested backend regression is fixed and confirmed: ingestion now rejects invalid/missing keys before DB work and valid watchlist-match ingestion creates both event and alert. Remaining UI findings are client/rendering or public WebSocket transport issues observed in console logs; no route failed to render."
+}
